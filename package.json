@@ -1,0 +1,16 @@
+{
+  "name": "kbrn-validator",
+  "version": "0.0.1",
+  "description": "Verify the business registration number of korea",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/**/*.js"
+  },
+  "author": "bigman",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.1.0",
+    "mocha": "^3.4.2"
+  },
+  "dependencies": {}
+}
