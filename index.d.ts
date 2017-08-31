@@ -1,3 +1,6 @@
+
+export as namespace kbrnValidator;
+
 export interface ValidateResult {
     isValid: boolean;
     message: string;
@@ -13,4 +16,5 @@ export interface Information {
     taxType: string;
 }
 
+export function validate(kbrn: string): ValidateResult;
 
