@@ -1,7 +1,7 @@
 'use strict';
 
-function validateResult(isValid, message, information){
-    return {isValid: isValid, mesage: message, information: information}
+function validateResult(valid, message, information){
+    return {valid: valid, mesage: message, information: information}
 }
 
 function kbrnValidate(param) {
@@ -24,8 +24,6 @@ function kbrnValidate(param) {
         return validateResult(false, '자리수가 맞지 않습니다.');
     }
 
-    console.log('kbrn', kbrn);
-
     // 5. 검증로직 확인
     var validationNumbers = [1,3,7,1,3,7,1,3,5];
     var sum = 0;
@@ -34,15 +32,15 @@ function kbrnValidate(param) {
     });
     sum += Math.floor(parseInt(kbrn[8]) * 5 / 10);
     
-    var isValid = (10 - (sum % 10)) === parseInt(kbrn[9]);
+    var valid = (10 - (sum % 10)) === parseInt(kbrn[9]);
 
-    if (isValid === false) {
+    if (valid === false) {
         return validateResult(false, '잘못된 사업자번호 입니다.');
     }
 
     // 6. 올바른 사업자번호의 경우 사업자 메타데이터 제공
     var information = getInformation(kbrn);
-    console.log('information', information);
+
     return validateResult(true, '올바른 사업자번호입니다.', information);
 }
 
@@ -54,12 +52,12 @@ function getInformation(param){
     var detailType;
     var isTaxFree;
 
-    if (checkInRange(typeCode, 1, 79)){
+    if (isBetween(typeCode, 1, 79)){
         type = '개인';
         detailType = '개인과세자';
         isTaxFree = false;
     }
-    else if (checkInRange(typeCode, 90, 99)){
+    else if (isBetween(typeCode, 90, 99)){
         type = '개인';
         detailType = '개인면세사업자';
         isTaxFree = true;
@@ -74,7 +72,7 @@ function getInformation(param){
         detailType = '기타 개인 및 다단계판매업자';
         isTaxFree = true;
     }
-    else if (checkContain(typeCode, [81, 86, 87])){
+    else if (isContain(typeCode, [81, 86, 87])){
         type = '법인';
         detailType = '영리법인의 본점';
         isTaxFree = false;
@@ -111,12 +109,12 @@ function getInformation(param){
     }
 
     // 범위 체크
-    function checkInRange(target, min, max) {
+    function isBetween(target, min, max) {
         return (target >= min && target <= max);
     }
 
     // 포함 체크
-    function checkContain(target, array) {
+    function isContain(target, array) {
         return array.indexOf(target) !== -1;
     }
 }
