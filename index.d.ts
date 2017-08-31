@@ -1,7 +1,7 @@
 declare module 'kbrn-validator' {
     namespace KbrnValidator {
         interface ValidateResult {
-            isValid: boolean;
+            valid: boolean;
             message: string;
             information?: Information;
         }
