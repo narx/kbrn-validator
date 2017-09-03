@@ -13,5 +13,4 @@
     "mocha": "^3.4.2"
   },
   "dependencies": {}
-  // "typings": "index.d.ts"
 }
