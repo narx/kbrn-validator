@@ -12,6 +12,6 @@
     "chai": "^4.1.0",
     "mocha": "^3.4.2"
   },
-  "dependencies": {},
-  "typings": "index.d.ts"
+  "dependencies": {}
+  // "typings": "index.d.ts"
 }
