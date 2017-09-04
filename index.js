@@ -1,5 +1,5 @@
 'use strict';
 
 module.exports = {
-    validate: require('./src/kbrn-validator')
+    kbrnValidate: require('./src/kbrn-validator')
 }
