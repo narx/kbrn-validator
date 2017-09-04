@@ -1,7 +1,7 @@
 'use strict';
 
 function validateResult(valid, message, information){
-    return {valid: valid, mesage: message, information: information}
+    return {valid: valid, message: message, information: information}
 }
 
 function kbrnValidate(param) {
