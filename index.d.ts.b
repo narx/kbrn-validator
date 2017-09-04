@@ -14,6 +14,5 @@ declare module 'kbrn-validator' {
             taxType: string;
         }
         function validate(kbrn: string): ValidateResult;
-        export = validate;
     }
 }   
