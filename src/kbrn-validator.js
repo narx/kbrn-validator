@@ -72,7 +72,7 @@ function getInformation(param){
         detailType = '기타 개인 및 다단계판매업자';
         isTaxFree = true;
     }
-    else if (isContain(typeCode, [81, 86, 87])){
+    else if (isContain(typeCode, [81, 86, 87, 88])){
         type = '법인';
         detailType = '영리법인의 본점';
         isTaxFree = false;
