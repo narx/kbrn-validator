@@ -30,15 +30,19 @@ function kbrnValidate(param) {
     validationNumbers.forEach(function(num, index){
         sum += num * parseInt(kbrn[index]);
     });
+
     sum += Math.floor(parseInt(kbrn[8]) * 5 / 10);
+
+    var diff = (10 - (sum % 10));
+
+    if (diff == 10) diff = 0;
     
-    var valid = (10 - (sum % 10)) === parseInt(kbrn[9]);
+    var valid = diff === parseInt(kbrn[9]);
 
     if (valid === false) {
         return validateResult(false, '잘못된 사업자번호 입니다.');
     }
 
-    // 6. 올바른 사업자번호의 경우 사업자 메타데이터 제공
     var information = getInformation(kbrn);
 
     return validateResult(true, '올바른 사업자번호입니다.', information);
