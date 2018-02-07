@@ -1,3 +1,4 @@
+// 타입 추가 작업중
 declare module 'kbrn-validator' {
     namespace KbrnValidator {
         interface ValidateResult {
